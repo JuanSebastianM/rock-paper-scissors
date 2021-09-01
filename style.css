@@ -1,3 +1,34 @@
+body {
+    text-align: center;
+    font-size: 10px;
+}
+h1 {
+    font-size: 4em;
+    padding: 20px 0;
+    border-bottom: 2px solid brown;
+}
+/* Shapes section */
+.shapes-div {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shape-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    margin-right: 20px;
+}
 img {
+    border: 2px solid red;
+    width: 50%;
     border-radius: 50%;
+    margin-bottom: 5px;
+}
+p {
+    font-size: 2em;
+    width: 70px;
+    border-top: 2px solid brown;
 }
