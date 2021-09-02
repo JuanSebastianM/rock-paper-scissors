@@ -34,7 +34,11 @@ const playerPlay = () => {
     setAttributes(playerShape, {'src': `${choice.img}`, 'alt': "Chosen shape by the player"})
     playerShapeName.textContent = `${choice.name}`
 }
-
+// Scores log
+let playerScore = 0
+let playerLog = document.getElementById('player-score')
+let computerScore = 0
+let computerLog = document.getElementById('comp-score')
 // Function to start playing upon click on button
 const button = document.querySelector('button')
 button.addEventListener('click', () => {
@@ -42,21 +46,33 @@ button.addEventListener('click', () => {
     computerPlay();
     if (playerShapeName.textContent === 'Rock' && compShapeName.textContent === 'Scissors') {
         console.log('Rock beats scissors. Player gets +1!')
+        playerScore += 1
+        playerLog.textContent = playerScore
     } 
     else if (playerShapeName.textContent === 'Scissors' && compShapeName.textContent === 'Rock') {
         console.log('Rock beats scissors. Computer gets +1!')
+        computerScore += 1
+        computerLog.textContent = computerScore
     }
     if (playerShapeName.textContent === 'Scissors' && compShapeName.textContent === 'Paper') {
         console.log('Scissors beat paper. Player gets +1!')
+        playerScore += 1
+        playerLog.textContent = playerScore
     }
     else if (playerShapeName.textContent === 'Paper' && compShapeName.textContent === 'Scissors') {
         console.log('Scissors beat paper. Computer gets +1!')
+        computerScore += 1
+        computerLog.textContent = computerScore
     }
     if (playerShapeName.textContent === 'Paper' && compShapeName.textContent === 'Rock') {
         console.log('Paper beats rock. Player gets +1')
+        playerScore += 1
+        playerLog.textContent = playerScore
     }
     else if (playerShapeName.textContent === 'Rock' && compShapeName.textContent === 'Paper') {
         console.log('Paper beats rock. Computer gets +1!')
+        computerScore += 1
+        computerLog.textContent = computerScore
     }
     if (playerShapeName.textContent === compShapeName.textContent) {
         console.log('It is a draw. Keep going!')
