@@ -35,18 +35,26 @@ let playerLog = document.getElementById('player-score')
 let computerScore = 0
 let computerLog = document.getElementById('comp-score')
 let result = document.getElementById('result')
-// Function to start playing upon click on button
-const buttonPlay = document.querySelector('#button-play')
+// After match has finished, display Play Again button and hide #button-play
+const playAgain = document.querySelector('#play-again')
 //Hide #button-play after clicking on it and make .options-div visible. Then, after clicking on an option, hide that div and continue.
+const buttonPlay = document.querySelector('#button-play')
 const optionsDiv = document.querySelector('.options-div')
+function resetScore() {
+    playerScore = 0
+    playerLog.textContent = playerScore
+    computerScore = 0
+    computerLog.textContent = computerScore
+    setAttributes(playerShape, {'src': "", 'alt': ""})
+    playerShapeName.textContent = ""
+    setAttributes(computerShape, {'src': "", 'alt': ""})
+    compShapeName.textContent = ""
+}
 buttonPlay.addEventListener('click', () => {
     optionsDiv.classList.toggle('options-visible')
     buttonPlay.classList.toggle('play-button-hidden')
     if (result.textContent === '') {
-        playerScore = 0
-        playerLog.textContent = playerScore
-        computerScore = 0
-        computerLog.textContent = computerScore
+        resetScore()
     }
 })
 // Functions to confirm whether it is a draw and if there's a winner
@@ -58,22 +66,12 @@ function isADraw() {
 function checkWinner() {
     if (playerScore === 5) {
         result.textContent = `You win! Congratulations!!`
-        playerScore = 0
-        playerLog.textContent = playerScore
-        computerScore = 0
-        computerLog.textContent = computerScore
-        buttonPlay.addEventListener('click', () => {
-            result.textContent = ''
-        })
+        buttonPlay.classList.toggle('play-button-hidden')
+        playAgain.classList.toggle('play-again-visible')
     } else if (computerScore === 5) {
         result.textContent = `You lose :'(... Imagine losing to a machine, lol!`
-        playerScore = 0
-        playerLog.textContent = playerScore
-        computerScore = 0
-        computerLog.textContent = computerScore
-        buttonPlay.addEventListener('click', () => {
-            result.textContent = ''
-        })
+        buttonPlay.classList.toggle('play-button-hidden')
+        playAgain.classList.toggle('play-again-visible')
     }
 }
 // If Player plays rock
@@ -138,4 +136,10 @@ scissors.addEventListener('click', () => {
     checkWinner()
     buttonPlay.classList.toggle('play-button-hidden')
     optionsDiv.classList.toggle('options-visible')
+})
+playAgain.addEventListener('click', () => {
+    result.textContent = '';
+    buttonPlay.classList.toggle('play-button-hidden')
+    playAgain.classList.toggle('play-again-visible')
+    resetScore()
 })
