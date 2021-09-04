@@ -177,11 +177,13 @@ function checkWinner() {
         playerLog.textContent = playerScore
         computerScore = 0
         computerLog.textContent = computerScore
+        buttonPlay.addEventListener('click', () => {
+            result.textContent = ''
+        })
     } else if (computerScore === 5) {
         result.textContent = `You lose :'(... Imagine losing to a machine, lol!`
-        playerScore = 0
-        playerLog.textContent = playerScore
-        computerScore = 0
-        computerLog.textContent = computerScore
+        buttonPlay.addEventListener('click', () => {
+            result.textContent = ''
+        })
     }
 }
