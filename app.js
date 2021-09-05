@@ -69,11 +69,11 @@ function checkWinner() {
     if (playerScore === 5) {
         result.textContent = `You win! Congratulations!!`
         buttonPlay.classList.toggle('hidden-element')
-        playAgain.classList.toggle('play-again-visible')
+        playAgain.classList.toggle('hidden-element')
     } else if (computerScore === 5) {
         result.textContent = `You lose :'(... Imagine losing to a machine, lol!`
         buttonPlay.classList.toggle('hidden-element')
-        playAgain.classList.toggle('play-again-visible')
+        playAgain.classList.toggle('hidden-element')
     }
 }
 // If Player plays rock
@@ -142,6 +142,6 @@ scissors.addEventListener('click', () => {
 playAgain.addEventListener('click', () => {
     result.textContent = '';
     buttonPlay.classList.toggle('hidden-element')
-    playAgain.classList.toggle('play-again-visible')
+    playAgain.classList.toggle('hidden-element')
     resetScore()
 })
