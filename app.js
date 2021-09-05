@@ -37,9 +37,10 @@ let computerLog = document.getElementById('comp-score')
 let result = document.getElementById('result')
 // After match has finished, display Play Again button and hide #button-play
 const playAgain = document.querySelector('#play-again')
-//Hide #button-play after clicking on it and make .options-div visible. Then, after clicking on an option, hide that div and continue.
+//Hide #button-play and instructions after clicking on Play and make .options-div visible. Then, after clicking on an option, hide that div and continue
 const buttonPlay = document.querySelector('#button-play')
 const optionsDiv = document.querySelector('.options-div')
+const instructions = document.querySelector('#instructions')
 function resetScore() {
     playerScore = 0
     playerLog.textContent = playerScore
@@ -52,9 +53,10 @@ function resetScore() {
 }
 buttonPlay.addEventListener('click', () => {
     optionsDiv.classList.toggle('options-visible')
-    buttonPlay.classList.toggle('play-button-hidden')
-    if (result.textContent === '') {
-        resetScore()
+    buttonPlay.classList.toggle('hidden-element')
+    if (result.textContent === '') { resetScore() }
+    if ((playerLog.textContent === '0') && instructions.classList.contains('hidden-element') === false) {
+        instructions.classList.toggle('hidden-element')
     }
 })
 // Functions to confirm whether it is a draw and if there's a winner
@@ -66,11 +68,11 @@ function isADraw() {
 function checkWinner() {
     if (playerScore === 5) {
         result.textContent = `You win! Congratulations!!`
-        buttonPlay.classList.toggle('play-button-hidden')
+        buttonPlay.classList.toggle('hidden-element')
         playAgain.classList.toggle('play-again-visible')
     } else if (computerScore === 5) {
         result.textContent = `You lose :'(... Imagine losing to a machine, lol!`
-        buttonPlay.classList.toggle('play-button-hidden')
+        buttonPlay.classList.toggle('hidden-element')
         playAgain.classList.toggle('play-again-visible')
     }
 }
@@ -92,7 +94,7 @@ rock.addEventListener('click', () => {
     }
     isADraw()
     checkWinner()
-    buttonPlay.classList.toggle('play-button-hidden')
+    buttonPlay.classList.toggle('hidden-element')
     optionsDiv.classList.toggle('options-visible')
 })
 // If Player plays paper
@@ -113,7 +115,7 @@ paper.addEventListener('click', () => {
     }
     isADraw()
     checkWinner()
-    buttonPlay.classList.toggle('play-button-hidden')
+    buttonPlay.classList.toggle('hidden-element')
     optionsDiv.classList.toggle('options-visible')
 })
 // If Player plays scissors
@@ -134,12 +136,12 @@ scissors.addEventListener('click', () => {
     }
     isADraw()
     checkWinner()
-    buttonPlay.classList.toggle('play-button-hidden')
+    buttonPlay.classList.toggle('hidden-element')
     optionsDiv.classList.toggle('options-visible')
 })
 playAgain.addEventListener('click', () => {
     result.textContent = '';
-    buttonPlay.classList.toggle('play-button-hidden')
+    buttonPlay.classList.toggle('hidden-element')
     playAgain.classList.toggle('play-again-visible')
     resetScore()
 })
