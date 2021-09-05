@@ -70,9 +70,6 @@ button:hover {
 .hidden-element {
     display: none;
 }
-.play-again-visible {
-    display: inline-block;
-}
 /* Options */
 .options-div {
     margin: 25px auto 0;
