@@ -8,7 +8,16 @@ body {
 h1 {
     font-size: 4em;
     padding: 20px 0;
+    margin-bottom: 10px;
     border-bottom: 2px solid brown;
+}
+p {
+    font-size: 1.5em;
+    line-height: 2; 
+}
+p span {
+    color: brown;
+    font-weight: 700;
 }
 /* Shapes section */
 .shapes-div {
@@ -43,13 +52,10 @@ img {
     width: auto;
     border-top: 2px solid brown;
 }
-p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
 /* Buttons */
 button {
     padding: 5px 20px;
+    margin: 20px 0;
     border: 2px solid brown;
     border-radius: 10px;
     cursor: pointer;
@@ -61,7 +67,7 @@ button:hover {
     transition: transform 200ms;
 }
 /* Hide Play button after clicking on it and play again button is hidden from start */
-.play-button-hidden, .play-again-hidden {
+.hidden-element {
     display: none;
 }
 .play-again-visible {
@@ -69,8 +75,8 @@ button:hover {
 }
 /* Options */
 .options-div {
-    margin: 0 auto;
-    padding-top: 10px;
+    margin: 25px auto 0;
+    padding-top: 20px;
     width: 280px;
     border-top: 2px solid #000;
     display: none;
