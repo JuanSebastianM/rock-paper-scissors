@@ -2,14 +2,31 @@
     font-family: 'Montserrat', sans-serif;
 }
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://fondosmil.com/fondo/10229.jpg');
+    background-size: cover;
+    background-position: center;
     text-align: center;
     font-size: 10px;
+}
+main {
+    background-color: rgba(255,255,255,0.3);
+    width: 100%;
+    min-height: 100vh;
 }
 h1 {
     font-size: 4em;
     padding: 20px 0;
     margin-bottom: 10px;
     border-bottom: 2px solid brown;
+}
+@media (min-width: 600px) {
+    main {
+        width: 460px;
+    }
 }
 p {
     font-size: 1.5em;
@@ -66,7 +83,7 @@ button:hover {
     transform: scale(1.05);
     transition: transform 200ms;
 }
-/* Hide Play button after clicking on it and play again button is hidden from start */
+/* Class for elements to be hidden at certain point */
 .hidden-element {
     display: none;
 }
